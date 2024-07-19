@@ -9,13 +9,25 @@ A truly experimental approach in the ever-growing arms-race of the tech world, y
 Error: 403 is a 3D rogue-like action game with procedurally generated levels where you build your own character's strength. Use various code blocks, conditional statements, expressions, and literals you find in the levels or learn from other pieces of software so that you can become any malware's worst nightmare. 
 
 ## Gameplay Highlights
-* List down gameplay your game should have. 
-* Stamina-based dash mechanic? 
-* Time manipulation for area traversal?
-* Rhythm game-like controls for combat?
-* Drop those all here.
+* Procedurally generated levels
+  * Online Nodes
+    * These includes websites which can be infected with various malware such as spyware, adware, and mining scripts
+  * Offline Nodes
+    * Explore devices which could be infected with ransomeware, trojans, worms, and viruses.
+  * You can choose which nodes to travel to which will affect what codebases you'll run into, thus, the kinds of builds you can make.
+* Build-it-yourself buffs and abilities
+  * Build your own conditional statements.
+    * Each code block represents a possible buff, and must be started with a if-statement or while(true)-loops.
+    * Once an if-block resolves to true, its contents will only be invoked once. For-loops will allow single events to be triggered multiple times in the same if-block.
+    * While(true)-loops are powerful code blocks, acting basically like passive buffs. However, power comes as a cost, literally. You can only put a limited amount of expressions in these blocks to avoid overloading your threads.
+    * For-loops IDK how to balance these ones yet but these should allow activating certain statements a certain amount of times e.x. Heal 3HP three times.
+  * String together statements, expressions, and literals to strengthen yourself the way you want.
+* Different starting paradigms
+  * Normal IDK what to call it. A vanilla run.
+  * Divide n' Conquer - Half your health, half your defense, half your everything? Worry not, you are not alone. You get to duplicate yourself and attack your enemies from two different places. Gets access to modules that increase your clones etc.
+  * Brute Force - Higher base stats for a more simple experience. I think this should either add a statement limit to even if-blocks, as well as decrease the limit in while(true) or disallow the use of the latter entirely.
+  * Dynamic Program - Lower (slightly?) base stats due to the increase computational power needed for running your unique code blocks: Recursion. Carefully manage your buffs or else you run the risk of a stack overflow.
+  * And more idk.
 
 # Changelog
-JUL-18-24: MAJOR additions to your game. These are separate from your commit messages in that these describe significant updates to your game's overall development progress. By significant I mean things like "Created entire new 2nd level" or "Completed in-game inventory system." Date format as listed here, please.
-
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+MMM-DD-YY: Nothing yet, other than added changelog.
