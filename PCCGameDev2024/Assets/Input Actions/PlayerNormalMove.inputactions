@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "LeftAttack",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "aa440e6c-3228-412e-9f2a-98ed0614babf",
                     "expectedControlType": "Button",
                     "processors": "",
