@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackStart;
     public bool isAttacking = false;
     private WeaponAnimation weapon;
+
     [SerializeField]
     private Transform player;
 
@@ -18,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     {
         player = GetComponent<Transform>();
         weapon = player.GetComponentInChildren<WeaponAnimation>();
+
     }
 
     public void CaptureAttackInput(InputAction.CallbackContext context){
@@ -27,6 +30,14 @@ public class PlayerAttack : MonoBehaviour
            weapon.Attack();
         }
     }
+
+    public void HandleHit(Collider other){
+        if(other.gameObject.CompareTag("Enemy") && isAttacking){
+            print("it is an enemy");
+            Destroy(other.gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

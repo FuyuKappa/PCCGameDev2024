@@ -17,14 +17,12 @@ public class PickUpController : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("ItemPickup")){
             ItemsInRange.Add(other.gameObject);
-            PrintCurrentInRange();
         }
     }
 
     private void OnTriggerExit(Collider other){
         if(other.gameObject.CompareTag("ItemPickup")){
             ItemsInRange.Remove(other.gameObject);
-            PrintCurrentInRange();
         }
     }
 
