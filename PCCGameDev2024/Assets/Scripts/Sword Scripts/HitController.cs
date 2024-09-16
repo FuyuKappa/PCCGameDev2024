@@ -17,7 +17,7 @@ public class HitController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider other){
-        if(other.gameObject.tag != "Untagged"){
+        if(!other.gameObject.CompareTag("Untagged")){
             print("Detected someone");
             print(other.gameObject.tag);
             pa.HandleHit(other);

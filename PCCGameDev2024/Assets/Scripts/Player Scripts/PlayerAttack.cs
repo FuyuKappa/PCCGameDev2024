@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {   
-    private float attackSpeedMult = 1f;
-    private float attackInterval = 0.5f;
+    private float attackSpeedMult;
     private float attackStart;
     public bool isAttacking = false;
     private WeaponAnimation weapon;
@@ -19,8 +18,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         player = GetComponent<Transform>();
-        weapon = player.GetComponentInChildren<WeaponAnimation>();
-
+        weapon = player.GetComponentInChildren<WeaponAnimation>();     
     }
 
     public void CaptureAttackInput(InputAction.CallbackContext context){
@@ -33,8 +31,8 @@ public class PlayerAttack : MonoBehaviour
 
     public void HandleHit(Collider other){
         if(other.gameObject.CompareTag("Enemy") && isAttacking){
-            print("it is an enemy");
-            Destroy(other.gameObject);
+            int attack = GetComponent<Stats>().GetAttack();
+            other.gameObject.GetComponent<EnemyController>().HandleHit(attack);
         }
     }
 
@@ -42,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         if(isAttacking){
+            float attackInterval = GetComponent<Stats>().GetAttackInterval();
             if(Time.time - attackStart >= attackInterval) isAttacking = false;
         }
     }

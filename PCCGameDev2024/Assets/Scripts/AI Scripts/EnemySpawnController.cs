@@ -21,7 +21,9 @@ public class EnemySpawnController : MonoBehaviour
     void Update()
     {
         if(Time.time - lastSpawn >= spawnTimer){
-            enemy= Instantiate(enemyPrefab, transform);
+            enemy = Instantiate(enemyPrefab, transform);
+            enemy.transform.SetParent(null);
+            enemy.GetComponent<EnemyStats>().GenerateStats((int)Random.Range(0,3) + 1);
             NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
 
             agent.destination =  GameObject.Find("Player").transform.position;
