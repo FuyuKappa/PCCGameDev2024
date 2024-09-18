@@ -12,11 +12,10 @@ public class WorldInteraction : MonoBehaviour
     private Canvas InfoPanelCanvas;
     [SerializeField]
     private TMP_Text InfoText;
+    [SerializeField]
     private BoxCollider playerDetectionBounds;
 
-    void Start(){
-        playerDetectionBounds = GetComponent<BoxCollider>();
-        
+    void Start(){        
         Module module =  this.AddComponent<Module>();
         JsonUtility.FromJsonOverwrite(this.GetComponent<Module>().GetStats(), module); 
 
@@ -34,11 +33,4 @@ public class WorldInteraction : MonoBehaviour
             InfoPanelCanvas.gameObject.SetActive(false);
         }
     }
-    /*
-    void Update(){
-        print(InfoPanelCanvas.transform.eulerAngles.x);
-        
-        InfoPanelCanvas.transform.position = new Vector3(Mathf.Abs(InfoPanelCanvas.transform.eulerAngles.x)/100, 3.74f , 0);
-    }
-    */
 }

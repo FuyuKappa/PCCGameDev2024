@@ -557,8 +557,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6073499374467330007}
   - {fileID: 2130512872372403136}
@@ -727,8 +727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 6202665829205571254}
   hpScale: {fileID: 7166891932592415591}
-  hpBar: {fileID: 582725976501627114}
-  center: {fileID: 0}
 --- !u!1 &6437822986693753899
 GameObject:
   m_ObjectHideFlags: 0

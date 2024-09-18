@@ -10,13 +10,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Transform  hpScale;
 
+    private LevelController lc;
+
     private readonly float hpBarScale = 2.74f;
 
     public void HandleHit(float damage){
         float HPafterHit = stats.GetHP() - damage;
-        print(HPafterHit);
+
         if(HPafterHit <= 0) { 
             Destroy(this.gameObject); 
+            lc.IncrementKilledEnemies();
         }
         else{
             stats.SetHP(HPafterHit);
@@ -25,5 +28,9 @@ public class EnemyController : MonoBehaviour
 
             hpScale.localScale = new Vector3(newHPBarScale, hpScale.localScale.y, hpScale.localScale.z);
         }
+    }
+
+    void Start(){
+        lc = GameObject.Find("LevelDirector").GetComponent<LevelController>();
     }
 }

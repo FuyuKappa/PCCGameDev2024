@@ -8,19 +8,22 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField]
     private GameObject enemyPrefab;
 
+    [SerializeField]
+    private LevelController lc;
+
     private GameObject enemy;
     private float spawnTimer;
     private float lastSpawn;
 
     void Start(){
-        spawnTimer = 3f;
+        spawnTimer = 0f;
         lastSpawn = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - lastSpawn >= spawnTimer){
+        if(Time.time - lastSpawn >= spawnTimer && lc.GetSpawnedEnemies() < lc.GetEnemyCount()){
             enemy = Instantiate(enemyPrefab, transform);
             enemy.transform.SetParent(null);
             enemy.GetComponent<EnemyStats>().GenerateStats((int)Random.Range(0,3) + 1);
@@ -28,8 +31,9 @@ public class EnemySpawnController : MonoBehaviour
 
             agent.destination =  GameObject.Find("Player").transform.position;
 
-            spawnTimer = Random.Range(3f, 6f);
+            spawnTimer = Random.Range(0.5f, 3f);
             lastSpawn = Time.time;
+            lc.IncrementSpawnedEnemies();
         }
     }
 }

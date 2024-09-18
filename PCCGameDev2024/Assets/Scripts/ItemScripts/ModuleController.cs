@@ -104,8 +104,8 @@ public class Module : MonoBehaviour
         if(attributeSeed == 1) {GenerateAtkModule(tier, seed); ModuleAttribute = "Attack";}
         else if(attributeSeed == 2) {GenerateAtkSpdModule(tier, seed); ModuleAttribute = "Attack Speed";}
         else if(attributeSeed == 3) {GenerateHPModule(tier, seed); ModuleAttribute = "HP";}
-        print(ModuleAttribute);
+        /*print(ModuleAttribute);
         print(ModuleTier);
-        print(ModuleValue);
+        print(ModuleValue);*/
     }
 }

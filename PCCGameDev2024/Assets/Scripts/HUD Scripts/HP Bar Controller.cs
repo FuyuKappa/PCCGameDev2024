@@ -14,14 +14,11 @@ public class HPBarController : MonoBehaviour
 
     private const float HPBarMaxWidth = 490f;
 
-    void Start(){
+    void Update(){
         int maxHP = player.GetComponent<Stats>().GetMaxHP();
         int currHP = player.GetComponent<Stats>().GetHP();
-
+        
         float HPPercent = (float)currHP / (float)maxHP;
-        print("HP percent: " + HPPercent);
-        print("HP percent: " + HPPercent);
-        print("HP percent: " + HPPercent);
         HPVal.sizeDelta = new Vector2(HPBarMaxWidth * HPPercent, 30);
 
         HPText.text = currHP + "/" + maxHP;
