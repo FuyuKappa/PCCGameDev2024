@@ -13,20 +13,22 @@ public class PlayerMovement : MonoBehaviour
     public Camera mainCamera;
     public Transform player;
 
-    private float baseMoveSpeed;
 
+    private float baseMoveSpeed;
     private float moveSpeed;
     private readonly float dashSpeedMultiplier = 5f;
     private const float dashDuration = 0.5f; //You should only dash for 2 seconds
     private float startDashTime;
     public bool isDashing = false;
 
+    private Vector3 allZero = new(0f,0f,0f);
+
     //========Funcs   
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        baseMoveSpeed = GetComponent<Stats>().GetBaseMoveSpeed();
+        baseMoveSpeed = PlayerStats.GetBaseMoveSpeed();
         moveSpeed = baseMoveSpeed;
     }
 
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CaptureDashInput(InputAction.CallbackContext context){
         bool isAttacking = GetComponent<PlayerAttack>().isAttacking;
-        if(context.performed && !isDashing){
+        if(context.performed && !isDashing && LastKnownGoodVector != allZero){
             isDashing = true;
             moveSpeed *= dashSpeedMultiplier;
             startDashTime = Time.time;

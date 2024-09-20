@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void HandleHit(Collider other){
         if(other.gameObject.CompareTag("Enemy") && isAttacking){
-            int attack = GetComponent<Stats>().GetAttack();
+            int attack = PlayerStats.GetAttack();
             other.gameObject.GetComponent<EnemyController>().HandleHit(attack);
         }
     }
@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         if(isAttacking){
-            float attackInterval = GetComponent<Stats>().GetAttackInterval();
+            float attackInterval = PlayerStats.GetAttackInterval();
             if(Time.time - attackStart >= attackInterval) isAttacking = false;
         }
     }

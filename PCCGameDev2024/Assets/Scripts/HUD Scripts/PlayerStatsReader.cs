@@ -9,16 +9,13 @@ public class PlayerStatsReader : MonoBehaviour
     private int attack;
     private float attackSpeed; 
 
-    [SerializeField]
-    private Stats stats;
-
     public TMP_Text HPField;
     public TMP_Text attackField;
     public TMP_Text attackSpeedField;
 
     public void RenderStats(){
-        HPField.text = "Maximum Integrity: " + stats.GetMaxHP();
-        attackField.text = "Attack Power: " + stats.GetAttack();
-        attackSpeedField.text = "Attack Speed: " + stats.GetAttackSpeedMult();
+        HPField.text = "Maximum Integrity: " + PlayerStats.GetMaxHP();
+        attackField.text = "Attack Power: " + PlayerStats.GetAttack();
+        attackSpeedField.text = "Attack Speed: " + PlayerStats.GetAttackSpeedMult();
     }
 }
