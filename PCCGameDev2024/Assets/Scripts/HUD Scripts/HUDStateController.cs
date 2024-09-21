@@ -26,6 +26,7 @@ public class HUDStateController : MonoBehaviour
             state = 1;
         }
         else if(Keyboard.current.escapeKey.wasPressedThisFrame && state == 1){ //Hide pause screen
+            reader.Unrender();
             pause.SetActive(false);
             Time.timeScale = 1f;
             state  = 0;

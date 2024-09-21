@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +18,6 @@ public class Block : MonoBehaviour
 
     [SerializeField]
     private TMP_Text InfoText;
-
 
     private string ReadModules(){
         string moduleText = "";
@@ -71,7 +71,19 @@ public class Block : MonoBehaviour
                             "}";
         }
     }
+
     void Start(){
         DisplayData();
+    }
+
+    public void OverrideValuesFrom(Block source){
+        moduleSlots = source.moduleSlots;
+        moduleList = source.moduleList;
+        blockList = source.blockList;
+        conditionFunc = source.conditionFunc;
+        conditionField = source.conditionField;
+        conditionOperator = source.conditionOperator;
+        conditionValue = source.conditionValue;
+
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using OpenCover.Framework.Model;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,6 +22,8 @@ public class StartGameController : MonoBehaviour
 
     private GameObject[][] moduleList = new GameObject[6][];
 
+    public static Block startingBlock;
+
     void Start(){
         SelectTraditional();
     }
@@ -40,7 +41,7 @@ public class StartGameController : MonoBehaviour
         else if(classNumber == 3){
             PlayerStats.SetBases(50, 2, 1.0f);
         }
-
+        if(startingBlock != null) Inventory.blockList.Add(startingBlock);
         SceneManager.LoadScene("DesktopTestLevel");
     }
     
